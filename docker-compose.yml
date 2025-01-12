@@ -1,0 +1,13 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"  # Exposing Next.js port
+    # Mount local directory to /app in the container for live updates
+    environment:
+      NODE_ENV: production
+      PYTHONUNBUFFERED: 1
+    volumes:
+      - ./public:/app/public
